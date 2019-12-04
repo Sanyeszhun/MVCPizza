@@ -59,6 +59,7 @@
     <Compile Include="FormPizzaFutarKft.Designer.cs">
       <DependentUpon>FormPizzaFutarKft.cs</DependentUpon>
     </Compile>
+    <Compile Include="model\Futar.cs" />
     <Compile Include="model\ModelExeption.cs" />
     <Compile Include="model\ModelPizzaNotValidNameExeption.cs" />
     <Compile Include="model\Pizza.cs" />
