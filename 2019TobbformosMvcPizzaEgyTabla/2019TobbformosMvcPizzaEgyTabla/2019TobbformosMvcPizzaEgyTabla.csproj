@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{1429A0E4-1E27-48C8-8299-A798FED91714}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>_2019TobbformosMvcPizzaEgyTabla</RootNamespace>
-    <AssemblyName>2019TobbformosMvcPizzaEgyTabla</AssemblyName>
+    <RootNamespace>TobbformosPizzaAlkalmazasEgyTabla</RootNamespace>
+    <AssemblyName>TobbformosPizzaAlkalmazasEgyTabla</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=8.0.18.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -59,6 +59,7 @@
     <Compile Include="FormPizzaFutarKft.Designer.cs">
       <DependentUpon>FormPizzaFutarKft.cs</DependentUpon>
     </Compile>
+    <Compile Include="model\ConnectionString.cs" />
     <Compile Include="model\Futar.cs" />
     <Compile Include="model\ModelExeption.cs" />
     <Compile Include="model\ModelPizzaNotValidNameExeption.cs" />
@@ -87,6 +88,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="diagram\ModellRepoPizza.cd" />
     <None Include="Properties\Settings.settings">

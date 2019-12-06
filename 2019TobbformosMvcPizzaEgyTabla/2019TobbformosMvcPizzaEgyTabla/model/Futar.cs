@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _2019TobbformosMvcPizzaEgyTabla.model
+namespace TobbformosPizzaAlkalmazasEgyTabla.model
 {
     class Futar
     {
