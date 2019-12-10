@@ -60,12 +60,12 @@
       <DependentUpon>FormPizzaFutarKft.cs</DependentUpon>
     </Compile>
     <Compile Include="model\ConnectionString.cs" />
+    <Compile Include="model\FutarDatabase.cs" />
     <Compile Include="model\Futar.cs" />
     <Compile Include="model\ModelExeption.cs" />
     <Compile Include="model\ModelFutarNotValidNameExeption.cs" />
     <Compile Include="model\ModelPizzaNotValidNameExeption.cs" />
     <Compile Include="model\Pizza.cs" />
-    <Compile Include="model\FutarDatabase.cs" />
     <Compile Include="model\PizzaDatabase.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

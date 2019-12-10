@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TobbformosPizzaAlkalmazasEgyTabla.model
 {
-    class Futar
+     partial class Futar
     {
         private int id;
         private string name;

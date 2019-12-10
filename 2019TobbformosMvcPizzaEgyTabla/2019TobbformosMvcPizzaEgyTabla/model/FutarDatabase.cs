@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TobbbformosPizzaAlkalmazasEgyTabla.Model
+namespace TobbformosPizzaAlkalmazasEgyTabla.model
 {
-    partial class Futar
+     partial class Futar
     {
         public string getInsert()
         {
             return
-                "INSERT INTO `futar` (`fazon`, `fnev`, ``) " +
+                "INSERT INTO `futar` (`fazon`, `fnev`, `fig`) " +
                 "VALUES ('" +
                 id +
                 "', '" +
@@ -24,22 +24,24 @@ namespace TobbbformosPizzaAlkalmazasEgyTabla.Model
         public string getUpdate(int id)
         {
             return
-                "UPDATE `ppizza` SET `pnev` = '" +
+                "UPDATE `futar` SET `fnev` = '" +
                 getNeme() +
-                "', `par` = '" +
-                getPrice() +
-                "' WHERE `ppizza`.`pazon` = " +
+                "', `fig` = '" +
+                getIg() +
+                "' WHERE `futar`.`fazon` = " +
                 id;
         }
 
         public static string getSQLCommandDeleteAllRecord()
         {
-            return "DELETE FROM ppizza";
+            return "DELETE FROM futar";
         }
 
         public static string getSQLCommandGetAllRecord()
         {
-            return "SELECT * FROM ppizza";
+            return "SELECT * FROM futar";
         }
     }
 }
+
+
