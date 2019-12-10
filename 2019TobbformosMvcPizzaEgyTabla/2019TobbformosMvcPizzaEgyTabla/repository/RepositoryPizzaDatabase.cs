@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using TobbformosPizzaAlkalmazasEgyTabla.Model;
 using MySql.Data.MySqlClient;
 using System.Diagnostics;
-using _2019TobbformosMvcPizzaEgyTabla.model;
+
 using TobbformosPizzaAlkalmazasEgyTabla.model;
 
 namespace TobbformosPizzaAlkalmazasEgyTabla.Repository
@@ -23,8 +23,8 @@ namespace TobbformosPizzaAlkalmazasEgyTabla.Repository
         public RepositoryDatabase()
         {
             ConnectionString cs = new ConnectionString();
-            connectionStringCreate = cs.getCreateString();
-            connectionString = cs.getConnectionString();
+             cs.getCreateString();
+           cs.getConnectionString();
         }
 
         /// <summary>
