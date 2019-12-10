@@ -23,8 +23,8 @@ namespace TobbformosPizzaAlkalmazasEgyTabla.model
             this.id = id;
             if (!isValidName(name))
                 throw new ModelFutarNotValidNameExeption("A futár neve nem megfelelő!");
-            if (!isValidPrice(ig))
-                throw new ModelFutarNotValidPriceExeption("A pizza ára nem megfelelő!");
+            if (!isValidIg(ig))
+                throw new ModelFutarNotValidNameExeption("A futár ára nem megfelelő!");
             this.name = name;
             this.ig = Convert.ToInt32(ig);
         }
@@ -32,13 +32,13 @@ namespace TobbformosPizzaAlkalmazasEgyTabla.model
         public void update(Futar modified)
         {
             this.name = modified.getNeme();
-            this.ig = modified.getPrice();
+            this.ig = modified.getIg();
         }
 
-        private bool isValidPrice(string price)
+        private bool isValidIg(string ig)
         {
             int eredmeny = 0;
-            if (int.TryParse(price, out eredmeny))
+            if (int.TryParse(ig, out eredmeny))
                 return true;
             else
                 return false;
@@ -69,9 +69,9 @@ namespace TobbformosPizzaAlkalmazasEgyTabla.model
         {
             this.name = name;
         }
-        public void setPrice(int price)
+        public void setIg(int ig)
         {
-            this.price = price;
+            this.ig = ig;
         }
         public int getId()
         {
@@ -81,9 +81,9 @@ namespace TobbformosPizzaAlkalmazasEgyTabla.model
         {
             return name;
         }
-        public int getPrice()
+        public int getIg()
         {
-            return price;
+            return ig;
         }
     }
 }

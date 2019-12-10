@@ -62,6 +62,7 @@
     <Compile Include="model\ConnectionString.cs" />
     <Compile Include="model\Futar.cs" />
     <Compile Include="model\ModelExeption.cs" />
+    <Compile Include="model\ModelFutarNotValidNameExeption.cs" />
     <Compile Include="model\ModelPizzaNotValidNameExeption.cs" />
     <Compile Include="model\Pizza.cs" />
     <Compile Include="model\PizzaDatabase.cs" />
