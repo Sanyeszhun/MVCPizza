@@ -73,6 +73,7 @@
     <Compile Include="repository\RepositoryExceptionCantAdd.cs" />
     <Compile Include="repository\RepositoryExceptionCantDelete.cs" />
     <Compile Include="repository\RepositoryExceptionCantModified.cs" />
+    <Compile Include="repository\RepositoryFutar.cs" />
     <Compile Include="repository\RepositoryPizza.cs" />
     <Compile Include="repository\RepositoryPizzaDatabase.cs" />
     <Compile Include="repository\RepositoryPizzaTablePizza.cs" />

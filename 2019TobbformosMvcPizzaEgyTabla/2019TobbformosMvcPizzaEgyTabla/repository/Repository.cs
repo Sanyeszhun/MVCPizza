@@ -13,6 +13,7 @@ namespace TobbbformosPizzaAlkalmazasEgyTabla.Repository
         public Repository()
         {
             pizzas = new List<Pizza>();
+            futar = new List<Futar>();
         }        
     }
 }
