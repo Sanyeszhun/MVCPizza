@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 using System.Data;
-using TobbbformosPizzaAlkalmazasEgyTabla.Model;
+using TobbformosPizzaAlkalmazasEgyTabla.Model;
 
-namespace TobbbformosPizzaAlkalmazasEgyTabla.Repository
+namespace TobbformosPizzaAlkalmazasEgyTabla.Repository
 {
     partial class Repository
     {

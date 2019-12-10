@@ -8,8 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using TobbbformosPizzaAlkalmazasEgyTabla.Repository;
-using TobbbformosPizzaAlkalmazasEgyTabla.Model;
+using TobbformosPizzaAlkalmazasEgyTabla.Repository;
+using TobbformosPizzaAlkalmazasEgyTabla.Model;
 using System.Diagnostics;
 
 namespace _2019TobbformosMvcPizzaEgyTabla

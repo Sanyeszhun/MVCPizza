@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace TobbbformosPizzaAlkalmazasEgyTabla.Model
+namespace TobbformosPizzaAlkalmazasEgyTabla.Model
 {
     [Serializable]
     internal class ModelPizzaNotValidPriceExeption : Exception

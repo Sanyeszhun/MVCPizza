@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TobbbformosPizzaAlkalmazasEgyTabla.Model
+namespace TobbformosPizzaAlkalmazasEgyTabla.Model
 {
     partial class Pizza
     {

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TobbformosPizzaAlkalmazasEgyTabla.model;
+using TobbformosPizzaAlkalmazasEgyTabla.Model;
 
-using TobbbformosPizzaAlkalmazasEgyTabla.Model;
-
-namespace TobbbformosPizzaAlkalmazasEgyTabla.Repository
+namespace TobbformosPizzaAlkalmazasEgyTabla.Repository
 {
     partial class Repository
     {
