@@ -76,7 +76,6 @@
     <Compile Include="repository\RepositoryExceptionCantModified.cs" />
     <Compile Include="repository\RepositoryFutar.cs" />
     <Compile Include="repository\RepositoryPizza.cs" />
-    <Compile Include="repository\RepositoryFutarDatabase.cs" />
     <Compile Include="repository\RepositoryPizzaDatabase.cs" />
     <Compile Include="repository\RepositoryPizzaTablePizza.cs" />
     <Compile Include="repository\RepositoryPizzaTablePizzaSQL.cs" />
