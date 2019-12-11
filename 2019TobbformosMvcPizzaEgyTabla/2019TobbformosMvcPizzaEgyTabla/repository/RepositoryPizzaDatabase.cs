@@ -23,8 +23,8 @@ namespace TobbformosPizzaAlkalmazasEgyTabla.Repository
         public RepositoryDatabase()
         {
             ConnectionString cs = new ConnectionString();
-             cs.getCreateString();
-           cs.getConnectionString();
+            connectionStringCreate = cs.getCreateString();
+            connectionString = cs.getConnectionString();
         }
 
         /// <summary>

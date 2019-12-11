@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MySql.Data, Version=8.0.18.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -76,8 +76,11 @@
     <Compile Include="repository\RepositoryExceptionCantModified.cs" />
     <Compile Include="repository\RepositoryFutar.cs" />
     <Compile Include="repository\RepositoryPizza.cs" />
+    <Compile Include="repository\RepositoryFutarTableDatabase.cs" />
     <Compile Include="repository\RepositoryPizzaDatabase.cs" />
     <Compile Include="repository\RepositoryPizzaTablePizza.cs" />
+    <Compile Include="repository\RepositoryTableFutarTestData .cs" />
+    <Compile Include="repository\RepositoryTableFutarSQL.cs" />
     <Compile Include="repository\RepositoryPizzaTablePizzaSQL.cs" />
     <Compile Include="repository\RepositoryPizzaTablePizzaTestData.cs" />
     <EmbeddedResource Include="FormPizzaFutarKft.resx">
