@@ -69,10 +69,6 @@
             this.buttonBetoltesPizzak = new System.Windows.Forms.Button();
             this.dataGridViewPizzak = new System.Windows.Forms.DataGridView();
             this.tabPageFutarok = new System.Windows.Forms.TabPage();
-            this.tabPageMegrendelok = new System.Windows.Forms.TabPage();
-            this.errorProviderPizzaName = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errorProviderPizzaPrice = new System.Windows.Forms.ErrorProvider(this.components);
-            this.dataGridViewFutar = new System.Windows.Forms.DataGridView();
             this.buttonMegsemf = new System.Windows.Forms.Button();
             this.panelModositTorolGombokfutar = new System.Windows.Forms.Panel();
             this.buttonModositFutar = new System.Windows.Forms.Button();
@@ -87,6 +83,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.buttonUjFutar = new System.Windows.Forms.Button();
             this.buttonBetoltesFutar = new System.Windows.Forms.Button();
+            this.dataGridViewFutar = new System.Windows.Forms.DataGridView();
+            this.tabPageMegrendelok = new System.Windows.Forms.TabPage();
+            this.errorProviderPizzaName = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderPizzaPrice = new System.Windows.Forms.ErrorProvider(this.components);
             this.menuStrip1.SuspendLayout();
             this.toolStripStatus.SuspendLayout();
             this.toolStripToolbar.SuspendLayout();
@@ -96,11 +96,11 @@
             this.panelPizza.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPizzak)).BeginInit();
             this.tabPageFutarok.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProviderPizzaName)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProviderPizzaPrice)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFutar)).BeginInit();
             this.panelModositTorolGombokfutar.SuspendLayout();
             this.panelFutar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFutar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderPizzaName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderPizzaPrice)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -466,32 +466,6 @@
             this.tabPageFutarok.Text = "Futárok kezelése";
             this.tabPageFutarok.UseVisualStyleBackColor = true;
             // 
-            // tabPageMegrendelok
-            // 
-            this.tabPageMegrendelok.Location = new System.Drawing.Point(4, 22);
-            this.tabPageMegrendelok.Name = "tabPageMegrendelok";
-            this.tabPageMegrendelok.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageMegrendelok.Size = new System.Drawing.Size(1000, 623);
-            this.tabPageMegrendelok.TabIndex = 2;
-            this.tabPageMegrendelok.Text = "Megrendelők kezelése";
-            this.tabPageMegrendelok.UseVisualStyleBackColor = true;
-            // 
-            // errorProviderPizzaName
-            // 
-            this.errorProviderPizzaName.ContainerControl = this;
-            // 
-            // errorProviderPizzaPrice
-            // 
-            this.errorProviderPizzaPrice.ContainerControl = this;
-            // 
-            // dataGridViewFutar
-            // 
-            this.dataGridViewFutar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewFutar.Location = new System.Drawing.Point(3, 0);
-            this.dataGridViewFutar.Name = "dataGridViewFutar";
-            this.dataGridViewFutar.Size = new System.Drawing.Size(652, 623);
-            this.dataGridViewFutar.TabIndex = 1;
-            // 
             // buttonMegsemf
             // 
             this.buttonMegsemf.Location = new System.Drawing.Point(894, 435);
@@ -624,6 +598,33 @@
             this.buttonBetoltesFutar.Text = "Betöltés";
             this.buttonBetoltesFutar.UseVisualStyleBackColor = true;
             // 
+            // dataGridViewFutar
+            // 
+            this.dataGridViewFutar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewFutar.Location = new System.Drawing.Point(3, 0);
+            this.dataGridViewFutar.Name = "dataGridViewFutar";
+            this.dataGridViewFutar.Size = new System.Drawing.Size(652, 623);
+            this.dataGridViewFutar.TabIndex = 1;
+          
+            // 
+            // tabPageMegrendelok
+            // 
+            this.tabPageMegrendelok.Location = new System.Drawing.Point(4, 22);
+            this.tabPageMegrendelok.Name = "tabPageMegrendelok";
+            this.tabPageMegrendelok.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageMegrendelok.Size = new System.Drawing.Size(1000, 623);
+            this.tabPageMegrendelok.TabIndex = 2;
+            this.tabPageMegrendelok.Text = "Megrendelők kezelése";
+            this.tabPageMegrendelok.UseVisualStyleBackColor = true;
+            // 
+            // errorProviderPizzaName
+            // 
+            this.errorProviderPizzaName.ContainerControl = this;
+            // 
+            // errorProviderPizzaPrice
+            // 
+            this.errorProviderPizzaPrice.ContainerControl = this;
+            // 
             // FormPizzaFutarKft
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -649,12 +650,12 @@
             this.panelPizza.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPizzak)).EndInit();
             this.tabPageFutarok.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.errorProviderPizzaName)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProviderPizzaPrice)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFutar)).EndInit();
             this.panelModositTorolGombokfutar.ResumeLayout(false);
             this.panelFutar.ResumeLayout(false);
             this.panelFutar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFutar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderPizzaName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderPizzaPrice)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

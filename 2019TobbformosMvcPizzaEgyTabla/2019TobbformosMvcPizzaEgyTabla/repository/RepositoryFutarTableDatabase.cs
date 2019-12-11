@@ -85,22 +85,6 @@ namespace TobbformosPizzaAlkalmazasEgyTabla.Repository
             }
         }
 
-        public void deleteDataFromFutarTable()
-        {
-            MySqlConnection connection = new MySqlConnection(connectionString);
-            try
-            {
-                connection.Open();
-                string query = Futar.Delet();
-                MySqlCommand cmd = new MySqlCommand(query, connection);
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception e)
-            {
-                connection.Close();
-                Debug.WriteLine(e.Message);
-                throw new RepositoryException("Tesztadatok törlése sikertelen.");
-            }
-        }
+      
     }
 }

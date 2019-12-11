@@ -47,6 +47,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormFutar.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormPizzas.cs">
       <SubType>Form</SubType>
     </Compile>

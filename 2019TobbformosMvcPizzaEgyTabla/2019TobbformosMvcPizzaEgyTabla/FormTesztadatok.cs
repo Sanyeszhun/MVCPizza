@@ -60,7 +60,7 @@ namespace _2019TobbformosMvcPizzaEgyTabla
             {
                 torolHibauzenetet();
                 rtp.createTablePizza();
-                rtp.fillPizzasWithTestDataFromSQLCommand();
+               
             }
             catch (Exception ex)
             {
