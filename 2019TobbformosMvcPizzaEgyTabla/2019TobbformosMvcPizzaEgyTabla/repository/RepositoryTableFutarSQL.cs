@@ -32,7 +32,7 @@ namespace TobbformosPizzaAlkalmazasEgyTabla.Repository
                     if (goodResult)
                     {
                         int ig= -1;
-                        goodResult = int.TryParse(dr["ig"].ToString(), out ig);
+                        goodResult = int.TryParse(dr["fig"].ToString(), out ig);
                         if (goodResult)
                         {
                             Futar p = new Futar(id, name, ig);

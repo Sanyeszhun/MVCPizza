@@ -36,7 +36,7 @@ namespace TobbformosPizzaAlkalmazasEgyTabla.Repository
                 "   `fig` varchar(30) COLLATE latin2_hungarian_ci NOT NULL DEFAULT '' " +
             ")ENGINE = InnoDB; ";
             string queryPrimaryKey =
-                "ALTER TABLE `pvevo`  ADD PRIMARY KEY(`fazon`); ";
+                "ALTER TABLE `futar`  ADD PRIMARY KEY(`fazon`); ";
 
             MySqlConnection connection =
                 new MySqlConnection(connectionString);

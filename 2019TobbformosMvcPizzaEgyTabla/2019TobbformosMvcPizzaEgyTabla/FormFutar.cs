@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 using TobbformosPizzaAlkalmazasEgyTabla.Repository;
 using TobbformosPizzaAlkalmazasEgyTabla.model;
+using TobbformosPizzaAlkalmazasEgyTabla.Repository;
 using System.Diagnostics;
 
 namespace _2019TobbformosMvcPizzaEgyTabla
@@ -24,7 +25,7 @@ namespace _2019TobbformosMvcPizzaEgyTabla
         /// </summary>
         private Repository repoo = new Repository();
         bool ujAdat = false;
-        private object dataGridViewMegrendelok;
+      
 
         private void ujMegsemGombokKezelese()
         {

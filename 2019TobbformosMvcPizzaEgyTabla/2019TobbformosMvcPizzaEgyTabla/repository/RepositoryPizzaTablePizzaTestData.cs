@@ -22,7 +22,7 @@ namespace TobbformosPizzaAlkalmazasEgyTabla.Repository
                 connection.Open();
 
                 string query =
-                    "INSERT INTO `futar` (`fazon`, `fnev`, ``) VALUES " +
+                    "INSERT INTO `futar` (`fazon`, `fnev`, `par`) VALUES " +
                             " (1, 'Hapci', 'Szeged'), " +
                             " (2, 'Vidor', 'Hódmezővásárhely'), " +
                             " (3, 'Tudor', 'Sándorfalva'), " +
