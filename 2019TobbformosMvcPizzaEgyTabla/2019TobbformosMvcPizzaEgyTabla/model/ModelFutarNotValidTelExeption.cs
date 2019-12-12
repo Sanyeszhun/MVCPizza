@@ -4,21 +4,21 @@ using System.Runtime.Serialization;
 namespace TobbformosPizzaAlkalmazasEgyTabla.model
 {
     [Serializable]
-    internal class ModelFutarNotValidNameExeption : Exception
+    internal class ModelFutarNotValidTelExeption : Exception
     {
-        public ModelFutarNotValidNameExeption()
+        public ModelFutarNotValidTelExeption()
         {
         }
 
-        public ModelFutarNotValidNameExeption(string message) : base(message)
+        public ModelFutarNotValidTelExeption(string message) : base(message)
         {
         }
 
-        public ModelFutarNotValidNameExeption(string message, Exception innerException) : base(message, innerException)
+        public ModelFutarNotValidTelExeption(string message, Exception innerException) : base(message, innerException)
         {
         }
 
-        protected ModelFutarNotValidNameExeption(SerializationInfo info, StreamingContext context) : base(info, context)
+        protected ModelFutarNotValidTelExeption(SerializationInfo info, StreamingContext context) : base(info, context)
         {
         }
     }

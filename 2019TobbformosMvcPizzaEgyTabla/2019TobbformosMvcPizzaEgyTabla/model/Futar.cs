@@ -24,7 +24,7 @@ namespace TobbformosPizzaAlkalmazasEgyTabla.model
             if (!isValidName(name))
                 throw new ModelFutarNotValidNameExeption("A futár neve nem megfelelő!");
             if (!isValidIg(ig))
-                throw new ModelFutarNotValidNameExeption("A futár ára nem megfelelő!");
+                throw new ModelFutarNotValidTelExeption("A futár ára nem megfelelő!");
             this.name = name;
             this.ig = Convert.ToInt32(ig);
         }

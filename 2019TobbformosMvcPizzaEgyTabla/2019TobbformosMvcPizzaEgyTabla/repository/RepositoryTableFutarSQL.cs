@@ -71,7 +71,7 @@ namespace TobbformosPizzaAlkalmazasEgyTabla.Repository
             }
         }
 
-        public void updatePizzaInDatabase(int id, Futar modified)
+        public void updateFutarInDatabase(int id, Futar modified)
         {
             MySqlConnection connection = new MySqlConnection(connectionString);
             try
@@ -91,7 +91,7 @@ namespace TobbformosPizzaAlkalmazasEgyTabla.Repository
             }
         }
 
-        public void insertPizzaToDatabase(Futar ujFutar)
+        public void insertFutarToDatabase(Futar ujFutar)
         {
             MySqlConnection connection = new MySqlConnection(connectionString);
             try
