@@ -87,6 +87,8 @@
             this.tabPageMegrendelok = new System.Windows.Forms.TabPage();
             this.errorProviderPizzaName = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderPizzaPrice = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderFutarnev = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderFutartel = new System.Windows.Forms.ErrorProvider(this.components);
             this.menuStrip1.SuspendLayout();
             this.toolStripStatus.SuspendLayout();
             this.toolStripToolbar.SuspendLayout();
@@ -101,6 +103,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFutar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderPizzaName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderPizzaPrice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderFutarnev)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderFutartel)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -605,7 +609,6 @@
             this.dataGridViewFutar.Name = "dataGridViewFutar";
             this.dataGridViewFutar.Size = new System.Drawing.Size(652, 623);
             this.dataGridViewFutar.TabIndex = 1;
-          
             // 
             // tabPageMegrendelok
             // 
@@ -624,6 +627,14 @@
             // errorProviderPizzaPrice
             // 
             this.errorProviderPizzaPrice.ContainerControl = this;
+            // 
+            // errorProviderFutarnev
+            // 
+            this.errorProviderFutarnev.ContainerControl = this;
+            // 
+            // errorProviderFutartel
+            // 
+            this.errorProviderFutartel.ContainerControl = this;
             // 
             // FormPizzaFutarKft
             // 
@@ -656,6 +667,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFutar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderPizzaName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderPizzaPrice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderFutarnev)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderFutartel)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -720,6 +733,8 @@
         private System.Windows.Forms.Button buttonUjFutar;
         private System.Windows.Forms.Button buttonBetoltesFutar;
         private System.Windows.Forms.DataGridView dataGridViewFutar;
+        private System.Windows.Forms.ErrorProvider errorProviderFutarnev;
+        private System.Windows.Forms.ErrorProvider errorProviderFutartel;
     }
 }
 

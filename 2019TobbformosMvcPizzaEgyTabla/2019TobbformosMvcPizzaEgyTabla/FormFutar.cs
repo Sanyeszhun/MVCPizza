@@ -69,23 +69,23 @@ namespace _2019TobbformosMvcPizzaEgyTabla
         {
             panelFutar.Visible = true;
             panelModositTorolGombokfutar.Visible = false;
-            textBoxMegrendeloCim.Text = string.Empty;
-            textBoxMegrendeloNev.Text = string.Empty;
+            textBoxFuttartel.Text = string.Empty;
+            textBoxFutarNev.Text = string.Empty;
         }
 
         private void KattintaskorGombok()
         {
             ujAdat = false;
             buttonUjMentesf.Visible = false;
-            buttonMegrendeloMegse.Visible = false;
+            buttonMegsemf.Visible = false;
             panelModositTorolGombokfutar.Visible = true;
-            errorProviderMegrendeloCim.Clear();
-            errorProviderMegrendeloNev.Clear();
+            errorProviderFutartel.Clear();
+            errorProviderFutarnev.Clear();
         }
         private void frissitMegrendelőkDGV()
         {
             //Adattáblát feltölti a repoba lévő pizza listából
-            megrendeloDT = repoo.MegrendelokListabolDataTable();
+            megrendeloDT = repoo.FutarListabolDataTable(); //UnicornsLover
             //Pizza DataGridView-nak a forrása a pizza adattábla
             dataGridViewMegrendelok.DataSource = null;
             dataGridViewMegrendelok.DataSource = megrendeloDT;
