@@ -18,12 +18,14 @@ namespace _2019TobbformosMvcPizzaEgyTabla
     {/// <summary>
      /// Megrendelőket tartalmazó adattábla
      /// </summary>
-        private DataTable megrendeloDT = new DataTable();
+        private DataTable futarDT = new DataTable();
         /// <summary>
         /// Tárolja a megrendelőket listában
         /// </summary>
         private Repository repoo = new Repository();
         bool ujAdat = false;
+        private object dataGridViewMegrendelok;
+
         private void ujMegsemGombokKezelese()
         {
             if (ujAdat == false)
@@ -85,74 +87,74 @@ namespace _2019TobbformosMvcPizzaEgyTabla
         private void frissitMegrendelőkDGV()
         {
             //Adattáblát feltölti a repoba lévő pizza listából
-            megrendeloDT = repoo.FutarListabolDataTable(); //UnicornsLover
+            futarDT = repoo.getFutarDataTableFromList(); //UnicornsLover
             //Pizza DataGridView-nak a forrása a pizza adattábla
-            dataGridViewMegrendelok.DataSource = null;
-            dataGridViewMegrendelok.DataSource = megrendeloDT;
+            dataGridViewFutar.DataSource = null;
+            dataGridViewFutar.DataSource = futarDT;
         }
-        private void dataGridViewMegrendelok_SelectionChanged(object sender, EventArgs e)
+        private void dataGridViewFutar_SelectionChanged(object sender, EventArgs e)
         {
             if (ujAdat)
             {
                 KattintaskorGombok();
             }
-            if (dataGridViewMegrendelok.SelectedRows.Count == 1)
+            if (dataGridViewFutar.SelectedRows.Count == 1)
             {
-                panelMegrendeloAdatok.Visible = true;
-                panelModositTorolMegrendeloAdatok.Visible = true;
-                buttonUjMegrendelo.Visible = true;
-                textBoxMegrendeloAZ.Text =
-                    dataGridViewMegrendelok.SelectedRows[0].Cells[0].Value.ToString();
-                textBoxMegrendeloNev.Text =
-                    dataGridViewMegrendelok.SelectedRows[0].Cells[1].Value.ToString();
-                textBoxMegrendeloCim.Text =
-                    dataGridViewMegrendelok.SelectedRows[0].Cells[2].Value.ToString();
+                panelFutar.Visible = true;
+                panelModositTorolGombokfutar.Visible = true;
+                buttonUjFutar.Visible = true;
+                textBoxFutarAzonosito.Text =
+                    dataGridViewFutar.SelectedRows[0].Cells[0].Value.ToString();
+                textBoxFutarNev.Text =
+                    dataGridViewFutar.SelectedRows[0].Cells[1].Value.ToString();
+                textBoxFuttartel.Text =
+                    dataGridViewFutar.SelectedRows[0].Cells[2].Value.ToString();
             }
             else
             {
-                panelMegrendeloAdatok.Visible = false;
-                panelModositTorolMegrendeloAdatok.Visible = false;
-                buttonUjMegrendelo.Visible = false;
+                panelFutar.Visible = false;
+                panelModositTorolGombokfutar.Visible = false;
+                buttonUjFutar.Visible = false;
             }
 
         }
 
-        private void beallitMegrendeloDGV()
+        private void beallitFutarDGV()
         {
-            megrendeloDT.Columns[0].ColumnName = "Azonosító";
-            megrendeloDT.Columns[0].Caption = "Megrendelő azonosító";
-            megrendeloDT.Columns[1].ColumnName = "Név";
-            megrendeloDT.Columns[1].Caption = "Megrendelő név";
-            megrendeloDT.Columns[2].ColumnName = "Cím";
-            megrendeloDT.Columns[2].Caption = "Megrendelő Cím";
+            futarDT.Columns[0].ColumnName = "Azonosító";
+            futarDT.Columns[0].Caption = "Megrendelő azonosító";
+            futarDT.Columns[1].ColumnName = "Név";
+            futarDT.Columns[1].Caption = "Megrendelő név";
+            futarDT.Columns[2].ColumnName = "Tel";
+            futarDT.Columns[2].Caption = "Telefonszám";
 
-            dataGridViewMegrendelok.SelectionMode =
+            dataGridViewFutar.SelectionMode =
                 DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewMegrendelok.ReadOnly = true;
-            dataGridViewMegrendelok.AllowUserToDeleteRows = false;
-            dataGridViewMegrendelok.AllowUserToAddRows = false;
-            dataGridViewMegrendelok.MultiSelect = false;
+            dataGridViewFutar.ReadOnly = true;
+            dataGridViewFutar.AllowUserToDeleteRows = false;
+            dataGridViewFutar.AllowUserToAddRows = false;
+            dataGridViewFutar.MultiSelect = false;
         }
         private void buttonBeolvasMegrendelok_Click(object sender, EventArgs e)
         {
             //Adatbázisban pizza tábla kezelése
-            RepositoryVevoTableDatabase rtp = new RepositoryVevoTableDatabase();
+            RepositoryFutarTableDatabase rtp = new RepositoryFutarTableDatabase();
             //A repo-ba lévő pizza listát feltölti az adatbázisból
-            repoo.setMegrendelok(rtp.getVevoFromDatabasePvevoTable());
-            frissitMegrendelőkDGV();
-            beallitMegrendeloDGV();
+            repoo.setFutar(rtp.getFutarFromDatabaseTable());
+            frissitFutarDGV();
+            beallitFutarDGV();
             MegrendeloGombokIndulaskor();
-            dataGridViewMegrendelok.SelectionChanged += dataGridViewMegrendelok_SelectionChanged;
+            dataGridViewFutar.SelectionChanged += dataGridViewFutar_SelectionChanged;
 
         }
-        private void buttonTorolMegrendelo_Click(object sender, EventArgs e)
+        private void buttonTorolFutar_Click(object sender, EventArgs e)
         {
             torolHibauzenetet();
-            if ((dataGridViewMegrendelok.Rows == null) ||
-                (dataGridViewMegrendelok.Rows.Count == 0))
+            if ((dataGridViewFutar.Rows == null) ||
+                (dataGridViewFutar.Rows.Count == 0))
                 return;
             //A felhasználó által kiválasztott sor a DataGridView-ban            
-            int sor = dataGridViewMegrendelok.SelectedRows[0].Index;
+            int sor = dataGridViewFutar.SelectedRows[0].Index;
             if (MessageBox.Show(
                 "Valóban törölni akarja a sort?",
                 "Törlés",
@@ -162,7 +164,7 @@ namespace _2019TobbformosMvcPizzaEgyTabla
                 //1. törölni kell a listából
                 int id = -1;
                 if (!int.TryParse(
-                         dataGridViewMegrendelok.SelectedRows[0].Cells[0].Value.ToString(),
+                         dataGridViewFutar.SelectedRows[0].Cells[0].Value.ToString(),
                          out id))
                     return;
                 try
@@ -175,10 +177,10 @@ namespace _2019TobbformosMvcPizzaEgyTabla
                     Debug.WriteLine("A Megrendelő törlés nem sikerült, nincs a listába!");
                 }
                 //2. törölni kell az adatbázisból
-                RepositoryVevoTableDatabase rdtp = new RepositoryVevoTableDatabase();
+                RepositoryFutarTableDatabase rdtp = new RepositoryFutarTableDatabase();
                 try
                 {
-                    rdtp.deleteVevoFromDatabase(id);
+                    rdtp.deleteFutarFromDatabase(id);
                 }
                 catch (Exception ex)
                 {
@@ -186,27 +188,27 @@ namespace _2019TobbformosMvcPizzaEgyTabla
                 }
                 //3. frissíteni kell a DataGridView-t  
                 frissitMegrendelőkDGV();
-                if (dataGridViewMegrendelok.SelectedRows.Count <= 0)
+                if (dataGridViewFutar.SelectedRows.Count <= 0)
                 {
-                    buttonUjMegrendelo.Visible = true;
+                    buttonUjFutar.Visible = true;
                 }
-                beallitMegrendeloDGV();
+                beallitFutarDGV();
             }
         }
 
         private void buttonMegrendeloModosit_Click(object sender, EventArgs e)
         {
             torolHibauzenetet();
-            errorProviderMegrendeloNev.Clear();
-            errorProviderMegrendeloCim.Clear();
+            errorProviderFutarnev.Clear();
+            errorProviderFutartel.Clear();
             try
             {
-                Megrendelo modosult = new Megrendelo(
-                    Convert.ToInt32(textBoxMegrendeloAZ.Text),
-                    textBoxMegrendeloNev.Text,
+                Futar modosult = new Futar(
+                    Convert.ToInt32(textBoxFutarAzonosito.Text),
+                    textBoxFutarNev.Text,
                     textBoxMegrendeloCim.Text
                     );
-                int azonosito = Convert.ToInt32(textBoxMegrendeloAZ.Text);
+                int azonosito = Convert.ToInt32(textBoxFutarAzonosito.Text);
                 //1. módosítani a listába
                 try
                 {
@@ -232,7 +234,7 @@ namespace _2019TobbformosMvcPizzaEgyTabla
             }
             catch (MegrendeloNevValidation mnv)
             {
-                errorProviderMegrendeloNev.SetError(textBoxMegrendeloNev, "Hiba a névben!");
+                errorProviderFutarnev.SetError(textBoxFutarNev, "Hiba a névben!");
             }
             catch (MegrendeloCimValidation mcv)
             {
@@ -250,12 +252,12 @@ namespace _2019TobbformosMvcPizzaEgyTabla
         {
             torolHibauzenetet();
             errorProviderMegrendeloCim.Clear();
-            errorProviderMegrendeloNev.Clear();
+            errorProviderFutarnev.Clear();
             try
             {
                 Megrendelo ujM = new Megrendelo(
-                    Convert.ToInt32(textBoxMegrendeloAZ.Text),
-                    textBoxMegrendeloNev.Text,
+                    Convert.ToInt32(textBoxFutarAzonosito.Text),
+                    textBoxFutarNev.Text,
                     textBoxMegrendeloCim.Text
                     );
                 int azonosito = Convert.ToInt32(textBoxMegrendeloAZ.Text);
@@ -294,7 +296,7 @@ namespace _2019TobbformosMvcPizzaEgyTabla
             }
             catch (MegrendeloNevValidation mnv)
             {
-                errorProviderMegrendeloNev.SetError(textBoxMegrendeloNev, "Hiba a névben!");
+                errorProviderMegrendeloNev.SetError(textBoxFutarNev, "Hiba a névben!");
             }
             catch (MegrendeloCimValidation mcv)
             {
