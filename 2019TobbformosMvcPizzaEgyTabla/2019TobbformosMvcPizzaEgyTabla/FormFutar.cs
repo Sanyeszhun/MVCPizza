@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 using TobbformosPizzaAlkalmazasEgyTabla.Repository;
 using TobbformosPizzaAlkalmazasEgyTabla.model;
-using TobbformosPizzaAlkalmazasEgyTabla.Repository;
+
 using System.Diagnostics;
 
 namespace _2019TobbformosMvcPizzaEgyTabla
@@ -138,10 +138,10 @@ namespace _2019TobbformosMvcPizzaEgyTabla
         }
         private void buttonBetoltesFutar_Click(object sender, EventArgs e)
         {
-            //Adatbázisban pizza tábla kezelése
-            RepositoryFutarTableDatabase rtp = new RepositoryFutarTableDatabase();
-            //A repo-ba lévő pizza listát feltölti az adatbázisból
-            repoo.setFutar(rtp.getFutarFromDatabaseTable());
+            //Adatbázisban futar tábla kezelése
+            RepositoryFutarTableDatabase rfdt = new  RepositoryFutarTableDatabase();
+            //A repo-ba lévő futár listát feltölti az adatbázisból
+            repoo.setFutar(rfdt.getFutarFromDatabaseTable());
             frissitFutarDGV();
             beallitFutarDGV();
             FutarGombokIndulaskor();
