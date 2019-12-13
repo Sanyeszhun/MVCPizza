@@ -4,17 +4,38 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using TobbformosPizzaAlkalmazasEgyTabla.Model;
+using TobbbformosPizzaAlkalmazasEgyTabla.Model;
 using MySql.Data.MySqlClient;
 using System.Diagnostics;
 
-namespace TobbformosPizzaAlkalmazasEgyTabla.Repository
+namespace TobbbformosPizzaAlkalmazasEgyTabla.Repository
 {
     partial class RepositoryDatabaseTablePizza
     {
-        
+   /*     public void fillPizzasWithTestDataFromTestData(List<Pizza> pizzas)
+        {
+            MySqlConnection connection = new MySqlConnection(connectionString);
 
-        public void fillFutarWithTestDataFromSQLCommand()
+            try
+            {
+                connection.Open();
+                foreach (Pizza p in pizzas)
+                {
+                    string query = p.getInsert();
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
+                    cmd.ExecuteNonQuery();
+                }
+                connection.Close();
+            }
+            catch (Exception e)
+            {
+                connection.Close();
+                Debug.WriteLine(e.Message);
+                throw new RepositoryException("Tesztadatok feltöltése sikertelen.");
+            }
+        }*/
+
+        public void fillPizzasWithTestDataFromSQLCommand()
         {
             MySqlConnection connection = new MySqlConnection(connectionString);
             try
@@ -22,12 +43,12 @@ namespace TobbformosPizzaAlkalmazasEgyTabla.Repository
                 connection.Open();
 
                 string query =
-                    "INSERT INTO `futar` (`fazon`, `fnev`, `par`) VALUES " +
-                            " (1, 'Hapci', 'Szeged'), " +
-                            " (2, 'Vidor', 'Hódmezővásárhely'), " +
-                            " (3, 'Tudor', 'Sándorfalva'), " +
-                            " (4, 'Vesuvio', 'Szatymaz'), " +
-                            " (5, 'Sorrento', 'Debrecen'); ";
+                    "INSERT INTO `ppizza` (`pazon`, `pnev`, `par`) VALUES " +
+                            " (1, 'Capricciosa', 900), " +
+                            " (2, 'Frutti di Mare', 1100), " +
+                            " (3, 'Hawaii', 780), " +
+                            " (4, 'Vesuvio', 890), " +
+                            " (5, 'Sorrento', 990); ";
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
                 connection.Close();

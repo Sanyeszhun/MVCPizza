@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace TobbformosPizzaAlkalmazasEgyTabla.model
+namespace TobbbformosPizzaAlkalmazasEgyTabla
 {
     [Serializable]
     internal class ModelFutarNotValidNameExeption : Exception

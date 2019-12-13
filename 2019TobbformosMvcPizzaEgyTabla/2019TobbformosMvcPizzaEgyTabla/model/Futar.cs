@@ -4,88 +4,183 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TobbformosPizzaAlkalmazasEgyTabla.model
+namespace TobbbformosPizzaAlkalmazasEgyTabla
 {
-     partial class Futar
+    partial class Futar
     {
         private int id;
         private string name;
-        private int ig;
+        private string tel;
 
-        public Futar(int id, string name, int ig)
-        {
-            this.id = id;
-            this.name = name;
-            this.ig = ig;
-        }
-        public Futar(int id, string name, string ig)
+        public Futar(int id, string name, string tel)
         {
             this.id = id;
             if (!isValidName(name))
-                throw new ModelFutarNotValidNameExeption("A futár neve nem megfelelő!");
-            if (!isValidIg(ig))
-                throw new ModelFutarNotValidTelExeption("A futár ára nem megfelelő!");
+            {
+                throw new ModelFutarNotValidNameExeption("A futár neve nem megfelelő (nagy betűvel kell kezdeni a nevet) !");
+            }
+
+            if (!isValidTel(tel))
+            {
+                throw new ModelFutarNotValidTelExeption("A telefonszám nem megfelelő (pl: +36705462345) !");
+            }
             this.name = name;
-            this.ig = Convert.ToInt32(ig);
+            this.tel = tel;
         }
 
-        public void update(Futar modified)
-        {
-            this.name = modified.getNeme();
-            this.ig = modified.getIg();
-        }
-
-        private bool isValidIg(string ig)
-        {
-            int eredmeny = 0;
-            if (int.TryParse(ig, out eredmeny))
-                return true;
-            else
-                return false;
-        }
-
-        private bool isValidName(string name)
+        public bool isValidName(string name)
         {
             if (name == string.Empty)
+            {
                 return false;
-            if (!char.IsUpper(name.ElementAt(0)))
-                return false;
-            for (int i = 1; i < name.Length; i = i + 1)
-                if (
-                    !char.IsLetter(name.ElementAt(i))
-                        &&
-                    (!char.IsWhiteSpace(name.ElementAt(i)))
+            }
 
-                    )
+            if (!char.IsUpper(name.ElementAt(0)))
+            {
+                return false;
+            }
+
+            for (int i = 1; i < name.Length; i++)
+            {
+                if ((!char.IsLetter(name.ElementAt(i))) && (!char.IsWhiteSpace(name.ElementAt(i))))
+                {
                     return false;
+                }
+            }
             return true;
         }
 
-        public void setID(int id)
+        public bool isValidTel(string telefonNumber)
+        {
+            if (telefonNumber.Length != 12)
+            {
+                return false;
+            }
+            else
+            {
+                if (telefonNumber[0] == '+')
+                {
+                    if (telefonNumber[1] == '3')
+                    {
+                        if (telefonNumber[2] == '6')
+                        {
+                            if (char.IsDigit(telefonNumber[3]))
+                            {
+                                if (char.IsDigit(telefonNumber[4]))
+                                {
+                                    if (char.IsDigit(telefonNumber[5]))
+                                    {
+                                        if (char.IsDigit(telefonNumber[6]))
+                                        {
+                                            if (char.IsDigit(telefonNumber[7]))
+                                            {
+                                                if (char.IsDigit(telefonNumber[8]))
+                                                {
+                                                    if (char.IsDigit(telefonNumber[9]))
+                                                    {
+                                                        if (char.IsDigit(telefonNumber[10]))
+                                                        {
+                                                            if (char.IsDigit(telefonNumber[11]))
+                                                            {
+                                                                return true;
+                                                            }
+                                                            else
+                                                            {
+                                                                return false;
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            return false;
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        return false;
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    return false;
+                                                }
+                                            }
+                                            else
+                                            {
+                                                return false;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            return false;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        return false;
+                                    }
+                                }
+                                else
+                                {
+                                    return false;
+                                }
+                            }
+                            else
+                            {
+                                return false;
+                            }
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
+        public void setId(int id)
         {
             this.id = id;
         }
+
         public void setName(string name)
         {
             this.name = name;
         }
-        public void setIg(int ig)
+
+        public void setTel(string tel)
         {
-            this.ig = ig;
+            this.tel = tel;
         }
+
         public int getId()
         {
             return id;
         }
-        public string getNeme()
+
+        public string getName()
         {
             return name;
         }
-        public int getIg()
+
+        public string getTel()
         {
-            return ig;
+            return tel;
         }
+
+        public void update(Futar modified)
+        {
+            this.name = modified.getName();
+            this.tel = modified.getTel();
+        }
+
     }
 }
-
-

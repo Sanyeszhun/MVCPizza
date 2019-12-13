@@ -8,8 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using TobbformosPizzaAlkalmazasEgyTabla.Repository;
-using TobbformosPizzaAlkalmazasEgyTabla.Model;
+using TobbbformosPizzaAlkalmazasEgyTabla.Repository;
+using TobbbformosPizzaAlkalmazasEgyTabla.Model;
 using System.Diagnostics;
 
 namespace _2019TobbformosMvcPizzaEgyTabla
@@ -36,7 +36,6 @@ namespace _2019TobbformosMvcPizzaEgyTabla
             frissitAdatokkalDataGriedViewt();
             beallitPizzaDataGriViewt();
             beallitGombokatIndulaskor();            
-
             dataGridViewPizzak.SelectionChanged += DataGridViewPizzak_SelectionChanged;
         }
 

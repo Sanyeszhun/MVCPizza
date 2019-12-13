@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace TobbformosPizzaAlkalmazasEgyTabla.Repository
+namespace TobbbformosPizzaAlkalmazasEgyTabla.Repository
 {
     [Serializable]
     internal class RepositoryExceptionCantModified : Exception

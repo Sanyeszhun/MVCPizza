@@ -4,13 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using TobbformosPizzaAlkalmazasEgyTabla.Model;
+using TobbbformosPizzaAlkalmazasEgyTabla.Model;
 using MySql.Data.MySqlClient;
 using System.Diagnostics;
+using TobbbformosPizzaAlkalmazasEgyTabla.model;
 
-using TobbformosPizzaAlkalmazasEgyTabla.model;
-
-namespace TobbformosPizzaAlkalmazasEgyTabla.Repository
+namespace TobbbformosPizzaAlkalmazasEgyTabla.Repository
 {
      class RepositoryDatabase
     {

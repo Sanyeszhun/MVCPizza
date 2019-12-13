@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{1429A0E4-1E27-48C8-8299-A798FED91714}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>TobbformosPizzaAlkalmazasEgyTabla</RootNamespace>
-    <AssemblyName>TobbformosPizzaAlkalmazasEgyTabla</AssemblyName>
+    <RootNamespace>TobbbformosPizzaAlkalmazasEgyTabla</RootNamespace>
+    <AssemblyName>TobbbformosPizzaAlkalmazasEgyTabla</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -33,7 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MySql.Data, Version=8.0.18.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data">
+      <HintPath>..\..\..\..\16.0v472\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -73,18 +75,19 @@
     <Compile Include="model\PizzaDatabase.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="repository\FRepository.cs" />
     <Compile Include="repository\Repository.cs" />
     <Compile Include="repository\RepositoryException.cs" />
     <Compile Include="repository\RepositoryExceptionCantAdd.cs" />
     <Compile Include="repository\RepositoryExceptionCantDelete.cs" />
     <Compile Include="repository\RepositoryExceptionCantModified.cs" />
     <Compile Include="repository\RepositoryFutar.cs" />
+    <Compile Include="repository\RepositoryFutarTableSQL.cs" />
+    <Compile Include="repository\RepositoryFutarTableTestData.cs" />
+    <Compile Include="repository\RepositoryFutarDatabaseTable.cs" />
     <Compile Include="repository\RepositoryPizza.cs" />
-    <Compile Include="repository\RepositoryFutarTableDatabase.cs" />
     <Compile Include="repository\RepositoryPizzaDatabase.cs" />
     <Compile Include="repository\RepositoryPizzaTablePizza.cs" />
-    <Compile Include="repository\RepositoryTableFutarTestData .cs" />
-    <Compile Include="repository\RepositoryTableFutarSQL.cs" />
     <Compile Include="repository\RepositoryPizzaTablePizzaSQL.cs" />
     <Compile Include="repository\RepositoryPizzaTablePizzaTestData.cs" />
     <EmbeddedResource Include="FormPizzaFutarKft.resx">
@@ -118,6 +121,7 @@
     <Content Include="icons\Load-icon.png" />
     <Content Include="icons\Save-icon.png" />
     <Content Include="icons\Tools-icon.png" />
+    <Content Include="sql\pizza.sql" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

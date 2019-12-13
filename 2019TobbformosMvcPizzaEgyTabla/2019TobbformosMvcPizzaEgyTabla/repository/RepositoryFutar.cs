@@ -1,40 +1,39 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 using System.Data;
-using TobbformosPizzaAlkalmazasEgyTabla.Model;
-using TobbformosPizzaAlkalmazasEgyTabla.model;
+using TobbbformosPizzaAlkalmazasEgyTabla.Model;
+using TobbbformosPizzaAlkalmazasEgyTabla.Repository;
 
-namespace TobbformosPizzaAlkalmazasEgyTabla.Repository
+namespace TobbbformosPizzaAlkalmazasEgyTabla.repository
 {
-    partial class Repository
+    partial class FRepository
     {
-        List<Futar> futar;
+        List<Futar> futarok;
 
-        public List<Futar> getFutar()
+        public List<Futar> getFutarok()
         {
-            return futar;
+            return futarok;
         }
 
-        public void setFutar(List<Futar> futar)
+        public void setFutarok(List<Futar> futarok)
         {
-            this.futar = futar;
+            this.futarok = futarok;
         }
 
-
-
-        public DataTable getFutarDataTableFromList()
+        public DataTable getPizzaDataTableFromList()
         {
             DataTable futarDT = new DataTable();
             futarDT.Columns.Add("azon", typeof(int));
             futarDT.Columns.Add("nev", typeof(string));
-            futarDT.Columns.Add("igazolvanyszam", typeof(int));
-            foreach (Futar p in futar)
+            futarDT.Columns.Add("tel", typeof(string));
+            foreach (Futar f in futarok)
             {
-                futarDT.Rows.Add(p.getId(), p.getNeme(), p.getIg());
+                futarDT.Rows.Add(f.getId(), f.getName(), f.getTel());
             }
             return futarDT;
         }
@@ -43,55 +42,67 @@ namespace TobbformosPizzaAlkalmazasEgyTabla.Repository
         {
             foreach (DataRow row in futardt.Rows)
             {
-                int azon = Convert.ToInt32(row[0]);
-                string nev = row[1].ToString();
-                int ig = Convert.ToInt32(row[2]);
-                Futar p = new Futar(azon, nev, ig);
-                futar.Add(p);
+                int id = Convert.ToInt32(row[0]);
+                string name = row[1].ToString();
+                string tel = row[2].ToString();
+                Futar f = new Futar(id, name, tel);
+                futarok.Add(f);
             }
         }
 
-        public void deleteFutarFromList(int id)
+        public void deleteFutarFromListByID(int id)
         {
-            Futar p = futar.Find(x => x.getId() == id);
-            if (p != null)
-                futar.Remove(p);
+            Futar f = futarok.Find(x => x.getId() == id);
+            if (f != null)
+            {
+                futarok.Remove(f);
+            }
             else
+            {
                 throw new RepositoryExceptionCantDelete("A futárt nem lehetett törölni.");
+            }  
         }
 
-        public void updateFutarInList(int id,Futar modified)
+        public void updateFutarInList(int id, Futar modified)
         {
-            Futar p = futar.Find(x => x.getId() == id);
-            if (p != null)
-                p.update(modified);
+            Futar f = futarok.Find(x => x.getId() == id);
+            if (f != null)
+            {
+                f.update(modified);
+            }
             else
+            {
                 throw new RepositoryExceptionCantModified("A futár módosítása nem sikerült");
+            }  
         }
 
         public void addFutarToList(Futar ujFutar)
         {
             try
             {
-                futar.Add(ujFutar);
+                futarok.Add(ujFutar);
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                throw new RepositoryExceptionCantAdd("A futar hozzáadása nem sikerült");
+                throw new RepositoryExceptionCantAdd("A futár hozzáadása nem sikerült");
             }
         }
 
         public Futar getFutar(int id)
         {
-            return futar.Find(x => x.getId() == id);
+            return futarok.Find(x => x.getId() == id);
         }
 
-        public int getNextPFutarId()
+        public int getNextFutarId()
         {
-            if (futar.Count == 0)
+            if (futarok.Count == 0)
+            {
                 return 1;
+            }
             else
-                return futar.Max(x => x.getId()) + 1;
+            {
+                return futarok.Max(x => x.getId()) + 1;
+            }     
         }
     }
 }

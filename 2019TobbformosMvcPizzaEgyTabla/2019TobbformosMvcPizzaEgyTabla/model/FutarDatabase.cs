@@ -4,44 +4,42 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TobbformosPizzaAlkalmazasEgyTabla.model
+namespace TobbbformosPizzaAlkalmazasEgyTabla
 {
-     partial class Futar
+    partial class Futar
     {
         public string getInsert()
         {
             return
-                "INSERT INTO `futar` (`fazon`, `fnev`, `fig`) " +
+                "INSERT INTO `pfutar` (`fazon`, `fnev`, `ftel`) " +
                 "VALUES ('" +
                 id +
                 "', '" +
-                getNeme() +
+                getName() +
                 "', '" +
-                getIg() +
+                getTel() +
                 "');";
         }
 
         public string getUpdate(int id)
         {
             return
-                "UPDATE `futar` SET `fnev` = '" +
-                getNeme() +
-                "', `fig` = '" +
-                getIg() +
-                "' WHERE `futar`.`fazon` = " +
+                "UPDATE `pfutar` SET `fnev` = '" +
+                getName() +
+                "', `ftel` = '" +
+                getTel() +
+                "' WHERE `pfutar`.`fazon` = " +
                 id;
         }
 
         public static string getSQLCommandDeleteAllRecord()
         {
-            return "DELETE FROM futar";
+            return "DELETE FROM pfutar";
         }
 
         public static string getSQLCommandGetAllRecord()
         {
-            return "SELECT * FROM futar";
+            return "SELECT * FROM pfutar";
         }
     }
 }
-
-

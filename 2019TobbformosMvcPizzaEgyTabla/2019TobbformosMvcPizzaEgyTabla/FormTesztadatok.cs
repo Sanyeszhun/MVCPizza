@@ -7,8 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
-using TobbformosPizzaAlkalmazasEgyTabla.Repository;
+using TobbbformosPizzaAlkalmazasEgyTabla.repository;
+using TobbbformosPizzaAlkalmazasEgyTabla.Repository;
 
 namespace _2019TobbformosMvcPizzaEgyTabla
 {
@@ -16,6 +16,8 @@ namespace _2019TobbformosMvcPizzaEgyTabla
     {
         RepositoryDatabase rd = new RepositoryDatabase();
         RepositoryDatabaseTablePizza rtp = new RepositoryDatabaseTablePizza();
+        RepositoryFutarDatabaseTable rfdt = new RepositoryFutarDatabaseTable();
+
 
         private void torolHibauzenetet()
         {
@@ -60,7 +62,9 @@ namespace _2019TobbformosMvcPizzaEgyTabla
             {
                 torolHibauzenetet();
                 rtp.createTablePizza();
-               
+                rfdt.createTableFutar();
+                rtp.fillPizzasWithTestDataFromSQLCommand();
+                rfdt.fillFutarokWithTestDataFromSQLCommand();
             }
             catch (Exception ex)
             {
@@ -74,6 +78,7 @@ namespace _2019TobbformosMvcPizzaEgyTabla
             {
                 torolHibauzenetet();
                 rtp.deleteTablePizza();
+                rfdt.deleteDataFromPfutarTable();
             }
             catch (Exception ex)
             {

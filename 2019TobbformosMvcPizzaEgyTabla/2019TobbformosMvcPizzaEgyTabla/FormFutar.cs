@@ -8,125 +8,130 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using TobbformosPizzaAlkalmazasEgyTabla.Repository;
-using TobbformosPizzaAlkalmazasEgyTabla.model;
-
+using TobbbformosPizzaAlkalmazasEgyTabla.Repository;
+using TobbbformosPizzaAlkalmazasEgyTabla.Model;
 using System.Diagnostics;
+using TobbbformosPizzaAlkalmazasEgyTabla.repository;
+using TobbbformosPizzaAlkalmazasEgyTabla;
 
 namespace _2019TobbformosMvcPizzaEgyTabla
 {
     public partial class FormPizzaFutarKft : Form
-    {/// <summary>
-     /// Megrendelőket tartalmazó adattábla
-     /// </summary>
+    {
+        /// <summary>
+        /// Futárokat tartalmazó adattábla
+        /// </summary>
         private DataTable futarDT = new DataTable();
         /// <summary>
-        /// Tárolja a megrendelőket listában
+        /// Tárolja a futarokat a listában
         /// </summary>
-        private Repository repoo = new Repository();
-        bool ujAdat = false;
-      
+        private FRepository fr = new FRepository();
+
+        bool ujAdatFel = false;
 
         private void ujMegsemGombokKezelese()
         {
-            if (ujAdat == false)
+            if (ujAdatFel == false)
                 return;
             if ((textBoxFutarNev.Text != string.Empty) ||
-                (textBoxFuttartel.Text != string.Empty))
+                (textBoxFutarTel.Text != string.Empty))
             {
-                buttonUjMentesf.Visible = true;
-                buttonMegsemf.Visible = true;
+                buttonFutarUjMentes.Visible = true;
+                buttonFutarMegsem.Visible = true;
             }
             else
             {
-                buttonUjMentesf.Visible = false;
-                buttonMegsemf.Visible = false;
+                buttonFutarUjMentes.Visible = false;
+                buttonFutarMegsem.Visible = false;
             }
         }
+
         private void FutarGombokIndulaskor()
         {
             panelFutar.Visible = false;
-            panelModositTorolGombokfutar.Visible = false;
+            panelModositTorolGombok2.Visible = false;
             if (dataGridViewFutar.SelectedRows.Count != 0)
                 buttonUjFutar.Visible = false;
             else
                 buttonUjFutar.Visible = true;
-            
         }
-        private void beallitGombokatUjFutarMegsemEsMentes()
+
+        private void beallitGombokatUjMegrendeloMegsemEsMentes()
         {
             if ((dataGridViewFutar.Rows != null) &&
                 (dataGridViewFutar.Rows.Count > 0))
                 dataGridViewFutar.Rows[0].Selected = true;
-            buttonUjMentesf.Visible = false;
-            buttonMegsemf.Visible = false;
-            panelModositTorolGombokfutar.Visible = true;
-            ujAdat = false;
+            buttonFutarUjMentes.Visible = false;
+            buttonFutarMegsem.Visible = false;
+            panelModositTorolGombok2.Visible = true;
+            ujAdatFel = false;
 
-            textBoxFuttartel.Text = string.Empty;
-            textBoxFutarNev.Text = string.Empty;
-
+            textBoxPizzaNev.Text = string.Empty;
+            textBoxPizzaAr.Text = string.Empty;
         }
-        private void beallitGombokatTextboxokatUjFutar()
+
+        private void beallitGombokatTextboxokatUjFutarnal()
         {
             panelFutar.Visible = true;
-            panelModositTorolGombokfutar.Visible = false;
-            textBoxFuttartel.Text = string.Empty;
+            panelModositTorolGombok2.Visible = false;
             textBoxFutarNev.Text = string.Empty;
+            textBoxFutarTel.Text = string.Empty;
         }
 
         private void KattintaskorGombok()
         {
-            ujAdat = false;
-            buttonUjMentesf.Visible = false;
-            buttonMegsemf.Visible = false;
-            panelModositTorolGombokfutar.Visible = true;
-            errorProviderFutartel.Clear();
-            errorProviderFutarnev.Clear();
+            ujAdatFel = false;
+            buttonFutarUjMentes.Visible = false;
+            buttonFutarMegsem.Visible = false;
+            panelModositTorolGombok2.Visible = true;
+            errorProviderFutarNeve.Clear();
+            errorProviderFutarTel.Clear();
         }
-        private void frissitFutarDGV()
+
+        private void updateFutarDGV()
         {
-            //Adattáblát feltölti a repoba lévő pizza listából
-            futarDT = repoo.getFutarDataTableFromList(); //UnicornsLover
-            //Pizza DataGridView-nak a forrása a pizza adattábla
+            //Adattáblát feltölti a repoba lévő futár listából
+            futarDT = fr.getPizzaDataTableFromList();
+            //Pizza DataGridView-nak a forrása a futár adattábla
             dataGridViewFutar.DataSource = null;
             dataGridViewFutar.DataSource = futarDT;
         }
+
         private void dataGridViewFutar_SelectionChanged(object sender, EventArgs e)
         {
-            if (ujAdat)
+            if (ujAdatFel)
             {
                 KattintaskorGombok();
             }
             if (dataGridViewFutar.SelectedRows.Count == 1)
             {
                 panelFutar.Visible = true;
-                panelModositTorolGombokfutar.Visible = true;
+                panelModositTorolGombok2.Visible = true;
                 buttonUjFutar.Visible = true;
                 textBoxFutarAzonosito.Text =
                     dataGridViewFutar.SelectedRows[0].Cells[0].Value.ToString();
                 textBoxFutarNev.Text =
                     dataGridViewFutar.SelectedRows[0].Cells[1].Value.ToString();
-                textBoxFuttartel.Text =
+                textBoxFutarTel.Text =
                     dataGridViewFutar.SelectedRows[0].Cells[2].Value.ToString();
             }
             else
             {
                 panelFutar.Visible = false;
-                panelModositTorolGombokfutar.Visible = false;
+                panelModositTorolGombok.Visible = false;
                 buttonUjFutar.Visible = false;
             }
 
         }
 
-        private void beallitFutarDGV()
+        private void setFutarDGV()
         {
             futarDT.Columns[0].ColumnName = "Azonosító";
-            futarDT.Columns[0].Caption = "Megrendelő azonosító";
+            futarDT.Columns[0].Caption = "Futár azonosító";
             futarDT.Columns[1].ColumnName = "Név";
-            futarDT.Columns[1].Caption = "Megrendelő név";
-            futarDT.Columns[2].ColumnName = "Tel";
-            futarDT.Columns[2].Caption = "Telefonszám";
+            futarDT.Columns[1].Caption = "Futár név";
+            futarDT.Columns[2].ColumnName = "Telefonszám";
+            futarDT.Columns[2].Caption = "Futár Telefonszám";
 
             dataGridViewFutar.SelectionMode =
                 DataGridViewSelectionMode.FullRowSelect;
@@ -135,17 +140,17 @@ namespace _2019TobbformosMvcPizzaEgyTabla
             dataGridViewFutar.AllowUserToAddRows = false;
             dataGridViewFutar.MultiSelect = false;
         }
-        private void buttonBetoltesFutar_Click(object sender, EventArgs e)
+
+        private void buttonFutarokBetoltes_Click(object sender, EventArgs e)
         {
             //Adatbázisban futar tábla kezelése
-            RepositoryFutarTableDatabase rfdt = new RepositoryFutarTableDatabase();
+            RepositoryFutarDatabaseTable rfdt = new RepositoryFutarDatabaseTable();
             //A repo-ba lévő futár listát feltölti az adatbázisból
-            repoo.setFutar(rfdt.getFutarFromDatabaseTable());
-            frissitFutarDGV();
-            beallitFutarDGV();
+            fr.setFutarok(rfdt.getFutarFromDatabaseTable());
+            updateFutarDGV();
+            setFutarDGV();
             FutarGombokIndulaskor();
             dataGridViewFutar.SelectionChanged += dataGridViewFutar_SelectionChanged;
-
         }
 
         private void buttonTorolFutar_Click(object sender, EventArgs e)
@@ -170,53 +175,50 @@ namespace _2019TobbformosMvcPizzaEgyTabla
                     return;
                 try
                 {
-                    repoo.deleteFutarFromList(id);
+                    fr.deleteFutarFromListByID(id);
                 }
                 catch (RepositoryExceptionCantDelete recd)
                 {
                     kiirHibauzenetet(recd.Message);
-                    Debug.WriteLine("A Megrendelő törlés nem sikerült, nincs a listába!");
+                    Debug.WriteLine("A Futár törlés nem sikerült, nincs a listába!");
                 }
                 //2. törölni kell az adatbázisból
-                RepositoryFutarTableDatabase rdtp = new RepositoryFutarTableDatabase();
+                RepositoryFutarDatabaseTable rfdt = new RepositoryFutarDatabaseTable();
                 try
                 {
-                    rdtp.deleteFutarFromDatabase(id);
+                    rfdt.deleteFutarFromDatabase(id);
                 }
                 catch (Exception ex)
                 {
                     kiirHibauzenetet(ex.Message);
                 }
                 //3. frissíteni kell a DataGridView-t  
-                frissitFutarDGV();
+                updateFutarDGV();
                 if (dataGridViewFutar.SelectedRows.Count <= 0)
                 {
                     buttonUjFutar.Visible = true;
                 }
-                beallitFutarDGV();
+                setFutarDGV();
             }
-
         }
-       
 
         private void buttonModositFutar_Click(object sender, EventArgs e)
         {
-
             torolHibauzenetet();
-            errorProviderFutarnev.Clear();
-            errorProviderFutartel.Clear();
+            errorProviderFutarNeve.Clear();
+            errorProviderFutarTel.Clear();
             try
             {
                 Futar modosult = new Futar(
                     Convert.ToInt32(textBoxFutarAzonosito.Text),
                     textBoxFutarNev.Text,
-                    textBoxFuttartel.Text
+                    textBoxFutarTel.Text
                     );
                 int azonosito = Convert.ToInt32(textBoxFutarAzonosito.Text);
                 //1. módosítani a listába
                 try
                 {
-                    repoo.updateFutarInList(azonosito, modosult);
+                    fr.updateFutarInList(azonosito, modosult);
                 }
                 catch (Exception ex)
                 {
@@ -224,25 +226,25 @@ namespace _2019TobbformosMvcPizzaEgyTabla
                     return;
                 }
                 //2. módosítani az adatbáziba
-                RepositoryFutarTableDatabase rdtp = new RepositoryFutarTableDatabase();
+                RepositoryFutarDatabaseTable rfdt = new RepositoryFutarDatabaseTable();
                 try
                 {
-                    rdtp.updateFutarInDatabase(azonosito, modosult);
+                    rfdt.updateFutarInDatabase(azonosito, modosult);
                 }
                 catch (Exception ex)
                 {
                     kiirHibauzenetet(ex.Message);
                 }
                 //3. módosítani a DataGridView-ban           
-                frissitFutarDGV();
+                updateFutarDGV();
             }
-            catch (ModelFutarNotValidNameExeption mnv)
+            catch (ModelFutarNotValidNameExeption fnv)
             {
-                errorProviderFutarnev.SetError(textBoxFutarNev, "Hiba a névben!");
+                errorProviderFutarNeve.SetError(textBoxFutarNev, "Hiba a névben!");
             }
-            catch (ModelFutarNotValidTelExeption mcv)
+            catch (ModelFutarNotValidTelExeption ftv)
             {
-                errorProviderFutartel.SetError(textBoxFuttartel, "Hiba a címben!");
+                errorProviderFutarTel.SetError(textBoxFutarTel, "Hiba a Telefonszámban!");
             }
             catch (RepositoryExceptionCantModified recm)
             {
@@ -252,27 +254,25 @@ namespace _2019TobbformosMvcPizzaEgyTabla
             catch (Exception ex)
             { }
         }
-       
 
-        private void buttonUjMentesf_Click(object sender, EventArgs e)
+        private void buttonFutarUjMentes_Click(object sender, EventArgs e)
         {
-
             torolHibauzenetet();
-            errorProviderFutartel.Clear();
-            errorProviderFutarnev.Clear();
+            errorProviderFutarNeve.Clear();
+            errorProviderFutarTel.Clear();
             try
             {
-                Futar ujM = new Futar(
+                Futar ujF = new Futar(
                     Convert.ToInt32(textBoxFutarAzonosito.Text),
                     textBoxFutarNev.Text,
-                    textBoxFuttartel.Text
+                    textBoxFutarTel.Text
                     );
                 int azonosito = Convert.ToInt32(textBoxFutarAzonosito.Text);
                 //1. Hozzáadni a listához
                 try
                 {
 
-                    repoo.addFutarToList(ujM);
+                    fr.addFutarToList(ujF);
 
                 }
                 catch (Exception ex)
@@ -281,11 +281,11 @@ namespace _2019TobbformosMvcPizzaEgyTabla
                     return;
                 }
                 //2. Hozzáadni az adatbázishoz
-                RepositoryFutarTableDatabase rdtp = new RepositoryFutarTableDatabase();
+                RepositoryFutarDatabaseTable rfdt = new RepositoryFutarDatabaseTable();
                 try
                 {
 
-                    rdtp.insertFutarToDatabase(ujM);
+                    rfdt.insertFutarToDatabase(ujF);
 
                 }
                 catch (Exception ex)
@@ -293,48 +293,46 @@ namespace _2019TobbformosMvcPizzaEgyTabla
                     kiirHibauzenetet(ex.Message);
                 }
                 //3. Frissíteni a DataGridView-t
-                frissitFutarDGV();
-                beallitGombokatUjFutarMegsemEsMentes();
+                updateFutarDGV();
+                beallitGombokatUjMegrendeloMegsemEsMentes();
                 if (dataGridViewFutar.SelectedRows.Count == 1)
                 {
-                    beallitFutarDGV();
+                    setFutarDGV();
                 }
 
             }
-            catch (ModelFutarNotValidNameExeption mnv)
+            catch (ModelFutarNotValidNameExeption fnv)
             {
-                errorProviderFutarnev.SetError(textBoxFutarNev, "Hiba a névben!");
+                errorProviderFutarNeve.SetError(textBoxFutarNev, fnv.Message);
             }
-            catch (ModelFutarNotValidTelExeption mcv)
+            catch (ModelFutarNotValidTelExeption ftv)
             {
-                errorProviderFutartel.SetError(textBoxFuttartel, "Hiba a címben!");
+                errorProviderFutarTel.SetError(textBoxFutarTel, ftv.Message);
             }
             catch (Exception ex)
             {
             }
-
         }
-        
+
         private void buttonUjFutar_Click(object sender, EventArgs e)
         {
-            ujAdat = true;
-            beallitGombokatTextboxokatUjFutar();
-            int ujFutarAz = repoo.getNextPFutarId();
+            ujAdatFel = true;
+            beallitGombokatTextboxokatUjFutarnal();
+            int ujFutarAz = fr.getNextFutarId();
             textBoxFutarAzonosito.Text = ujFutarAz.ToString();
-
         }
-       
 
-        private void buttonMegsemf_Click(object sender, EventArgs e)
+        private void buttonFutarMegsem_Click(object sender, EventArgs e)
         {
-            beallitGombokatUjFutarMegsemEsMentes();
+            beallitGombokatUjMegrendeloMegsemEsMentes();
         }
+
         private void textBoxFutarNev_TextChanged(object sender, EventArgs e)
         {
             ujMegsemGombokKezelese();
         }
 
-        private void textBoxFuttartel_TextChanged(object sender, EventArgs e)
+        private void textBoxFutarTel_TextChanged(object sender, EventArgs e)
         {
             ujMegsemGombokKezelese();
         }

@@ -5,19 +5,22 @@ using System.Text;
 using System.Threading.Tasks;
 
 using System.Data;
-using TobbformosPizzaAlkalmazasEgyTabla.Model;
+using TobbbformosPizzaAlkalmazasEgyTabla.Model;
 
-namespace TobbformosPizzaAlkalmazasEgyTabla.Repository
+namespace TobbbformosPizzaAlkalmazasEgyTabla.Repository
 {
     partial class Repository
     {
+        //deklarálása
         List<Pizza> pizzas;
 
+        //get metódus
         public List<Pizza> getPizzas()
         {
             return pizzas;
         }
 
+        //set metódus
         public void setPizzas(List<Pizza> pizzas)
         {
             this.pizzas = pizzas;
@@ -33,6 +36,7 @@ namespace TobbformosPizzaAlkalmazasEgyTabla.Repository
             pizzas.Add(new Pizza(5, "Sorrento", 990));
         }*/
 
+        //Datatablet létrehozza, Listából Datatablet.
         public DataTable getPizzaDataTableFromList()
         {
             DataTable pizzaDT = new DataTable();
@@ -46,6 +50,7 @@ namespace TobbformosPizzaAlkalmazasEgyTabla.Repository
             return pizzaDT;
         }
 
+        //Datatableből Listát csinálunk
         private void fillPizzaListFromDataTable(DataTable pizzadt)
         {
             foreach (DataRow row in pizzadt.Rows)
@@ -76,6 +81,7 @@ namespace TobbformosPizzaAlkalmazasEgyTabla.Repository
                 throw new RepositoryExceptionCantModified("A pizza módosítása nem sikerült");
         }
 
+        //nem lehet olyan idéjű pizza ami már létezik(fejleszteni)
         public void addPizzaToList(Pizza ujPizza)
         {
             try
@@ -87,12 +93,13 @@ namespace TobbformosPizzaAlkalmazasEgyTabla.Repository
                 throw new RepositoryExceptionCantAdd("A pizza hozzáadása nem sikerült");
             }
         }
-
+        
         public Pizza getPizza(int id)
         {
             return pizzas.Find(x => x.getId() == id);
         }
 
+        //nem lesz addal így baj
         public int getNextPizzaId()
         {
             if (pizzas.Count == 0)

@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 using TobbbformosPizzaAlkalmazasEgyTabla.Model;
 
-namespace TobbbformosPizzaAlkalmazasEgyTabla.Repository
+namespace TobbbformosPizzaAlkalmazasEgyTabla.repository
 {
-    partial class Repository
+    partial class FRepository
     {
-        public Repository()
+        public FRepository()
         {
-            pizzas = new List<Pizza>();
-        }        
+            futarok = new List<Futar>();
+        }  
     }
 }

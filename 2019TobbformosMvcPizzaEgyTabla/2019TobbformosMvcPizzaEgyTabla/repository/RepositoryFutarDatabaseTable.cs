@@ -1,17 +1,16 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-using TobbbformosPizzaAlkalmazasEgyTabla.Model;
-using MySql.Data.MySqlClient;
-using System.Diagnostics;
 using TobbbformosPizzaAlkalmazasEgyTabla.model;
+using TobbbformosPizzaAlkalmazasEgyTabla.Repository;
 
-namespace TobbbformosPizzaAlkalmazasEgyTabla.Repository
+namespace TobbbformosPizzaAlkalmazasEgyTabla.repository
 {
-    partial class RepositoryDatabaseTablePizza
+    partial class RepositoryFutarDatabaseTable
     {
         private readonly string connectionStringCreate;
         private readonly string connectionString;
@@ -19,7 +18,7 @@ namespace TobbbformosPizzaAlkalmazasEgyTabla.Repository
         /// <summary>
         /// Konstruktor - kezdőértékadások
         /// </summary>
-        public RepositoryDatabaseTablePizza()
+        public RepositoryFutarDatabaseTable()
         {
             ConnectionString cs = new ConnectionString();
             connectionStringCreate = cs.getCreateString();
@@ -29,17 +28,17 @@ namespace TobbbformosPizzaAlkalmazasEgyTabla.Repository
         /// <summary>
         /// csarp adatbázisban pizza tábla létrehozása
         /// </summary>
-        public void createTablePizza()
+        public void createTableFutar()
         {
             string queryUSE = "USE csarp;";
             string queryCreateTable =
-                "CREATE TABLE `ppizza` ( " +
-                "   `pazon` int(3) NOT NULL DEFAULT '0', " +
-                "   `pnev` varchar(15) COLLATE latin2_hungarian_ci NOT NULL DEFAULT '', " +
-                "   `par` int(4) NOT NULL DEFAULT '0' " +
+                "CREATE TABLE `pfutar` ( " +
+                "   `fazon` int(3) NOT NULL DEFAULT '0', " +
+                "   `fnev` varchar(15) COLLATE latin2_hungarian_ci NOT NULL DEFAULT '', " +
+                "   `ftel` varchar(15) COLLATE latin2_hungarian_ci NOT NULL DEFAULT '' " +
             ")ENGINE = InnoDB; ";
             string queryPrimaryKey =
-                "ALTER TABLE `ppizza`  ADD PRIMARY KEY(`pazon`); ";
+                "ALTER TABLE `pfutar`  ADD PRIMARY KEY(`fazon`); ";
 
             MySqlConnection connection =
                 new MySqlConnection(connectionString);
@@ -65,11 +64,11 @@ namespace TobbbformosPizzaAlkalmazasEgyTabla.Repository
         /// <summary>
         /// pizza tábla törlése csarp adatbázisból
         /// </summary>
-        public void deleteTablePizza()
+        public void deleteTableFutar()
         {
             string query =
                 "USE csarp; " +
-                "DROP TABLE ppizza;";
+                "DROP TABLE pfutar;";
 
             MySqlConnection connection =
                 new MySqlConnection(connectionString);
@@ -87,14 +86,14 @@ namespace TobbbformosPizzaAlkalmazasEgyTabla.Repository
                 throw new RepositoryException("Tábla törlése nem sikerült.");
             }
         }
-        
-        public void deleteDataFromTable()
+
+        public void deleteDataFromPfutarTable()
         {
             MySqlConnection connection = new MySqlConnection(connectionString);
             try
             {
                 connection.Open();
-                string query = Pizza.getSQLCommandDeleteAllRecord();
+                string query = Futar.getSQLCommandDeleteAllRecord();
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
             }
