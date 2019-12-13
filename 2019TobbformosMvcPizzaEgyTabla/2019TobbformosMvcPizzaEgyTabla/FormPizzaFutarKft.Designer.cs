@@ -498,6 +498,7 @@
             this.buttonModositFutar.TabIndex = 3;
             this.buttonModositFutar.Text = "Módosít";
             this.buttonModositFutar.UseVisualStyleBackColor = true;
+            this.buttonModositFutar.Click += new System.EventHandler(this.buttonModositFutar_Click);
             // 
             // buttonTorolFutar
             // 
@@ -507,6 +508,7 @@
             this.buttonTorolFutar.TabIndex = 4;
             this.buttonTorolFutar.Text = "Töröl";
             this.buttonTorolFutar.UseVisualStyleBackColor = true;
+            this.buttonTorolFutar.Click += new System.EventHandler(this.buttonTorolFutar_Click);
             // 
             // buttonUjMentesf
             // 
@@ -517,6 +519,7 @@
             this.buttonUjMentesf.Text = "Új mentése";
             this.buttonUjMentesf.UseVisualStyleBackColor = true;
             this.buttonUjMentesf.Visible = false;
+            this.buttonUjMentesf.Click += new System.EventHandler(this.buttonUjMentesf_Click);
             // 
             // panelFutar
             // 
@@ -592,6 +595,7 @@
             this.buttonUjFutar.Text = "Új";
             this.buttonUjFutar.UseVisualStyleBackColor = true;
             this.buttonUjFutar.Visible = false;
+            this.buttonUjFutar.Click += new System.EventHandler(this.buttonUjFutar_Click);
             // 
             // buttonBetoltesFutar
             // 
@@ -601,6 +605,7 @@
             this.buttonBetoltesFutar.TabIndex = 9;
             this.buttonBetoltesFutar.Text = "Betöltés";
             this.buttonBetoltesFutar.UseVisualStyleBackColor = true;
+            this.buttonBetoltesFutar.Click += new System.EventHandler(this.buttonBetoltesFutar_Click);
             // 
             // dataGridViewFutar
             // 

@@ -51,8 +51,7 @@ namespace _2019TobbformosMvcPizzaEgyTabla
                 buttonUjFutar.Visible = false;
             else
                 buttonUjFutar.Visible = true;
-            buttonMegsemf.Visible = false;
-            buttonUjMentesf.Visible = false;
+            
         }
         private void beallitGombokatUjFutarMegsemEsMentes()
         {
@@ -139,7 +138,7 @@ namespace _2019TobbformosMvcPizzaEgyTabla
         private void buttonBetoltesFutar_Click(object sender, EventArgs e)
         {
             //Adatbázisban futar tábla kezelése
-            RepositoryFutarTableDatabase rfdt = new  RepositoryFutarTableDatabase();
+            RepositoryFutarTableDatabase rfdt = new RepositoryFutarTableDatabase();
             //A repo-ba lévő futár listát feltölti az adatbázisból
             repoo.setFutar(rfdt.getFutarFromDatabaseTable());
             frissitFutarDGV();
@@ -148,6 +147,7 @@ namespace _2019TobbformosMvcPizzaEgyTabla
             dataGridViewFutar.SelectionChanged += dataGridViewFutar_SelectionChanged;
 
         }
+
         private void buttonTorolFutar_Click(object sender, EventArgs e)
         {
             torolHibauzenetet();
@@ -195,10 +195,13 @@ namespace _2019TobbformosMvcPizzaEgyTabla
                 }
                 beallitFutarDGV();
             }
+
         }
+       
 
         private void buttonModositFutar_Click(object sender, EventArgs e)
         {
+
             torolHibauzenetet();
             errorProviderFutarnev.Clear();
             errorProviderFutartel.Clear();
@@ -249,8 +252,11 @@ namespace _2019TobbformosMvcPizzaEgyTabla
             catch (Exception ex)
             { }
         }
+       
+
         private void buttonUjMentesf_Click(object sender, EventArgs e)
         {
+
             torolHibauzenetet();
             errorProviderFutartel.Clear();
             errorProviderFutarnev.Clear();
@@ -306,14 +312,18 @@ namespace _2019TobbformosMvcPizzaEgyTabla
             catch (Exception ex)
             {
             }
+
         }
+        
         private void buttonUjFutar_Click(object sender, EventArgs e)
         {
             ujAdat = true;
             beallitGombokatTextboxokatUjFutar();
             int ujFutarAz = repoo.getNextPFutarId();
             textBoxFutarAzonosito.Text = ujFutarAz.ToString();
+
         }
+       
 
         private void buttonMegsemf_Click(object sender, EventArgs e)
         {
